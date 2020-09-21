@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=200px, initial-scale=1.0">
+  <title>解决display:inline-block;换行空格问题</title>
+  <style>
+    body{
+      font-size: 16px;
+    }
+    span{
+      display:inline-block;
+      background-color: #69cfff;
+      color:#fff;
+    }
+    .margin-fix span{
+      margin-right: -4px;
+    }
+    .font-size-fix{
+      font-size:0
+    }
+    .font-size-fix span{
+      font-size: 16px;
+      -webkit-text-size-adjust: none;
+    }
+    .flex-box{
+      display: -webkit-box;
+      display:-moz-box;
+      display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex;
+    }
+    .letter-spacing{
+      letter-spacing: -3px;
+    }
+    .letter-spacing span{
+      letter-spacing: 0;
+    }
+    .word-spacing{
+      word-spacing: -6px;
+    }
+    .word-spacing span{
+      white-space: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>解决display:inline-block;换行空格问题</h2>
+  <h3>原本状态</h3>
+  <div>
+    <span>杨洋和刘亦菲</span>
+    <span>是真的</span>
+    <span>非常好看！</span>
+  </div>
+  <hr/>
+
+  <h3>HTML方法</h3>
+  <h4>inline-block搞成一行:</h4>
+  <div>
+    <span>杨洋和刘亦菲</span><span>是真的</span><span>非常好看！</span>
+  </div>
+  <h4>用注释代替换行:</h4>
+  <div>
+    <span>杨洋和刘亦菲</span><!--
+    --><span>是真的</span><!--
+    --><span>非常好看！</span>
+  </div>
+  <hr/>
+
+  <h3>CSS方法</h3>
+  <h4>margin-right: -4px;:</h4>
+  <div class="margin-fix">
+    <span>杨洋和刘亦菲</span>
+    <span>是真的</span>
+    <span>非常好看！</span>
+  </div>
+  <h4>font-size</h4>
+  <div class="font-size-fix">
+    <span>杨洋和刘亦菲</span>
+    <span>是真的</span>
+    <span>非常好看！</span>
+  </div>
+  <h4>flex-box:</h4>
+  <div class="flex-box">
+    <span>杨洋和刘亦菲</span>
+    <span>是真的</span>
+    <span>非常好看！</span>
+  </div>
+  <h4>letter-spacing:</h4>
+  <div class="letter-spacing">
+    <span>杨洋和刘亦菲</span>
+    <span>是真的</span>
+    <span>非常好看！</span>
+  </div>
+  <h4>word-spacing:</h4>
+  <div class="word-spacing">
+    <span>杨洋和刘亦菲</span>
+    <span>是真的</span>
+    <span>非常好看！</span>
+  </div>
+</body>
+</html>

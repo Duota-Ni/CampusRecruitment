@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>border画一个三角形</title>
+  <style>
+    div{
+      background-color: rgba(105, 207, 255,0.4)
+    }
+    .normal{
+      width: 50px;
+      height: 50px;
+      border:2px solid orange;
+    }
+    .four{
+      width: 50px;
+      height: 50px;
+      border: 40px solid;
+      border-color: orange blue green red;
+    }
+    .four0{
+      width: 0;
+      height: 0;
+      border: 40px solid;
+      border-color: orange blue green red;
+    }
+    .four-trans{
+      width: 0;
+      height: 0;
+      border: 40px solid;
+      border-color: transparent transparent red;
+    }
+    .four-trans-width{
+      width: 0;
+      height: 0;
+      border-width: 0 40px 40px;
+      border-style: solid;
+      border-color: transparent transparent blue;
+    }
+    .triangle-out{
+      width: 0;
+      height: 0;
+      border-width: 0 40px 40px;
+      border-style: solid;
+      border-color: transparent transparent red;
+
+      position: relative;
+    }
+    .triangle-out::after{
+      /* 这里将基于trangle-out三角形的上顶点进行绝对定位，因为绝对定位的区域是基于绝对定位父元素的padding区域 */
+      width: 0;
+      height: 0;
+      border-width: 0 38px 38px;
+      border-style: solid;
+      border-color: transparent transparent yellow;
+
+      content:'';
+      position: absolute;
+      top:1px;
+      left: -38px;
+      /* bottom: 0px; */
+    }
+    .triangle-arrow{
+      width: 0;
+      height: 0;
+      border-width: 0 40px 40px;
+      border-style: solid;
+      border-color: transparent transparent #69cfff;
+
+      position: relative;
+    }
+    .triangle-arrow::after{
+      width: 0;
+      height: 0;
+      border-width: 0 38px 38px;
+      border-style: solid;
+      border-color: transparent transparent #ffffff;
+
+      content:'';
+      position: absolute;
+      top:2px;
+      left: -38px;
+      /* bottom: 0px; */
+    }
+    .triangle-top-left{
+      width: 0;
+      height: 0;
+      border-top: solid red 40px;
+      border-right: solid transparent 40px;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="normal"></div>
+  <hr/>
+  <div class="four"></div>
+  <hr/>
+  <div class="four0"></div>
+  <hr/>
+  <div class="four-trans"></div>
+  <hr/>
+  <div class="four-trans-width"></div>
+  <hr/>
+
+  <div class="triangle-out"></div>
+  <hr/>
+  <div class="triangle-arrow"></div>
+  <hr/>
+  <div class="triangle-top-left"></div>
+</body>
+</html>
