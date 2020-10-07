@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    html,
+    body {
+      /* height: 100%; */
+      overflow: hidden;
+      position: relative;
+    }
+
+    .box {
+      box-sizing: border-box;
+      width: 100px;
+      height: 50px;
+      line-height: 48px;
+      text-align: center;
+      font-size: 16px;
+      border: 1px solid lightblue;
+      background: lightcyan;
+    }
+
+    /*1.定位 父相对定位子绝对定位*/
+    /* body {
+      position: relative;
+    } */
+
+    /* 1.1要求知道宽高长度并计算，2020.10.07测试使用不了*/
+    /* .box {
+      position: absoulte;
+      top: 50%;
+      left: 50%;
+      margin-top: -25px;
+      margin-left: -50px;
+    }  */
+    
+    /* 1.2对宽高没有要求但是兼容性不好，2020.10.07测试使用不了 */
+    /* .box{
+      position: absoulte;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }  */
+ 
+    /* 1.3这种方案要求有宽高 */
+    /* .box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }  */
+
+    /* 2.flex */
+    /* body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } */
+    
+    /* 4.display:table-cell 这种方法本来是用来控制含泪元素水平垂直居中的 */
+    body{
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      /*固定宽高*/
+      width:500px;
+      height: 500px;
+    }
+    .box{
+      display:inline-block;
+    }
+  </style>
+  <title>盒子水平垂直居中</title>
+</head>
+
+<body>
+  <div class="box" id="box">Yangyang</div>
+
+  
+  <script>
+    //3.javascript方法，同样需要父相对定位子绝对定位
+    // let HTML = document.documentElement,
+    // winW = HTML.clientWidth,
+    // winH = HTML.clientHeight,
+    // boxW = box.offsetWidth,
+    // boxH = box.offsetHeight;
+    // box.style.position = "absolute";
+    // box.style.left = (winW - boxW) / 2 +"px";
+    // box.style.top = (winH - boxH) / 2 +"px";
+  </script>
+</body>
+
+</html>

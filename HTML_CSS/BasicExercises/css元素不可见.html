@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>css元素不可见</title>
+  <style>
+    .block {
+      background-color: rgb(245, 218, 200);
+    }
+    .block p {
+      background-color: #69cfff;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>设置元素样式为display: none或者visibility: hidden</h1>
+  <div class="block">
+    <h2>display: none</h2>
+    <p>A元素</p>
+    <p style="display:none">B元素</p>
+    <p>C元素</p>
+  </div>
+  <div class="block">
+    <h2>visibility: hidden</h2>
+    <p>A元素</p>
+    <p style="visibility: hidden">B元素</p>
+    <p>C元素</p>
+  </div>
+  <div>
+    <p>1、作用不同</p>
+    <p>visibility: hidden----将元素隐藏，但是在网页中该占的位zhi置还是占着。</p>
+    <p>display: none----将元素的显示设为无，即在网页中不占任何的位置。html会渲染，只是不显示</p>
+    <p>2、使用后HTML元素有所不同</p>
+    <p>visibility:hidden，使用该属性后，HTML元素（对象）仅仅是在视觉上看不见（完全透明），而它所占据的空间位置仍然存在，也即是说它仍具有高度、宽度等属性值。</p>
+    <p>display:none，使用该属性后，HTML元素（对象）的宽度、高度等各种属性值都将“丢失”。</p>
+  </div>
+  <h1>CSS中设置border属性为0与none的区别</h1>
+  <div>
+    <p>1.性能差异<br>
+      【border:0;】把border设为“0”像素虽然在页面上看不见，但按border默认值理解，浏览器依然对border-width/<b>border-color进行了渲染，即已经占用了内存值。</b><br>
+      【border:none;】把border设为“none”即没有，浏览器解析“none”时将<b>不作出渲染动作，即不会消耗内存值。</b></p>
+  </div>
+</body>
+
+</html>

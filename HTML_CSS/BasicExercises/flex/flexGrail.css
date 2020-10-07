@@ -1,0 +1,48 @@
+
+    .HolyGrail {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    header,
+    footer {
+      flex: 1;
+      background-color: blueviolet;
+    }
+
+    .HolyGrail-body {
+      display: flex;
+      flex: 1;
+      background-color: gold;
+    }
+
+    .HolyGrail-content {
+      flex: 1;
+      background-color: #69cfff;
+      border: 1px solid #000;
+    }
+
+    .HolyGrail-nav, .HolyGrail-ads {
+      /* 两个边栏的宽度设为12em */
+      flex: 0 0 12em;
+      background-color: pink;
+    }
+
+    .HolyGrail-nav {
+      /* 导航放到最左边 */
+      order: -1;
+      background-color: green;
+    }
+
+    @media (max-width: 768px) {
+      .HolyGrail-body {
+        flex-direction: column;
+        flex: 1;
+      }
+      .HolyGrail-nav,
+      .HolyGrail-ads,
+      .HolyGrail-content {
+        flex: auto;
+      }
+    }
