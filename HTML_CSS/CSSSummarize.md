@@ -20,3 +20,16 @@ CSS Sprites在国内很多人叫css精灵，是一种网页图片应用处理方
 ![怪异盒子模型](assets/img/IE标准盒子模型.png)
 ### 3. Flex弹性伸缩盒子模型
 [阮一峰flex](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+
+## 使用css,让一个div消失在视野中
+
+## 不考虑其他因素，下面哪种渲染性能比较高
+```css
+.box a{
+
+}
+a{
+
+}
+```
+下面那种，因为浏览器读取选择器的顺序是**由右到左**进行，上面例子会先读一遍a再读.box
