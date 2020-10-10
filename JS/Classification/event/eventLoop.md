@@ -27,7 +27,7 @@ console.log('5')
 ![EventLoop](../../img/EventLoop.png)  
 - 异步事件又包括微任务和宏任务：  
   宏任务和微任务关系：微任务执行完后再执行宏任务  
-  **微任务操作：1：Promise,2:MutationObserver**  
+  **微任务操作：1：Promise,2：async await，3:MutationObserver**  
   **宏任务操作: 1:setTimeout,2:setInterval,3:I/O操作，4:xhr**
   ![EventLoop2](../../img/EventLoop2.png)    
 - 所以上面代码执行顺序为:
