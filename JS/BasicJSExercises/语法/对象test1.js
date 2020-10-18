@@ -10,7 +10,7 @@ function Func(){
 Func.A = A;
 Func.prototype={
   A:()=>{
-    console.log(3);
+    console.log(3); //箭头函数不能被new
   }
 }
 A();//1

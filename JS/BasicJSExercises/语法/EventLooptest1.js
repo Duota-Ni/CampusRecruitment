@@ -3,7 +3,7 @@ setTimeout(() => {
 },20)
 console.log(2);
 setTimeout(()=>{
-  console.log(2);
+  console.log(3);
 },10)
 console.log(4);
 console.time('AA');
@@ -20,3 +20,4 @@ setTimeout(()=>{
   console.log(8);
 },15)
 console.log(9);
+//2 4 ？ms 5 7 9 6 3 1 8 

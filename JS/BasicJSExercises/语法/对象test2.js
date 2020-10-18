@@ -12,6 +12,6 @@ var y ={
   })(x)
 }
 var m = y.z;
-m(4);
+m(4); //
 y.z(5);
 console.log(x,y.x);

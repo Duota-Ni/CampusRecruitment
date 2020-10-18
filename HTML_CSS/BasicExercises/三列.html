@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    /* 方法1直接grid
+    方法2flex+cacl */
+    .content {
+      width: 100%;
+      /* background-color: aquamarine; */
+      /* display: grid;
+      grid-template-columns: 100px auto 100px; */
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .center {
+      width: calc(100% - 200px);
+      background-color: yellow;
+    }
+
+    .left {
+      width: 100px;
+      background-color: blueviolet;
+    }
+
+    .right {
+      width: 100px;
+      background-color: aqua;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 要求：content,宽度100%，left,right 100px;center auto -->
+  
+  <div class="content">
+    <div class="left">left</div>
+    <div class="center">center</div>
+    <div class="right">right</div>
+  </div>
+</body>
+
+</html>
