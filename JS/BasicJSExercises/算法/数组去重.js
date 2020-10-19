@@ -10,8 +10,8 @@ function deduplicationstr(str) {
 }
 console.log(deduplicationstr('aafsdgdgeyhfeee'));
 
-//方法2
-function deduplication2(arr){
+//方法2 indexOf / includes
+function deduplication2(arr) {
   let a = [];
   for (let i = 0; i < arr.length; i++) {
     if (a.indexOf(arr[i]) == -1) {
@@ -20,7 +20,7 @@ function deduplication2(arr){
   }
   console.log(a);
 }
-deduplication2([2,3,8,4,3,3,6,3,8]);
+deduplication2([2, 3, 8, 4, 3, 3, 6, 3, 8]);
 
 function deduplicationstr2(str) {
   let b = str.split('');
@@ -30,8 +30,22 @@ function deduplicationstr2(str) {
       a.push(b[i])
     }
   }
-  console.log(a.join('') );;
+  console.log(a.join(''));;
 }
 deduplicationstr2('ahhhtyisattt')
 
 //方法3
+//相邻项处理
+function deduplication3(arr) {
+  arr.sort((a, b) => a - b);
+  arr = arr.join('@') + '@';
+  let reg = /(\d+@)\1*/g;
+  let arr1 = [];
+  arr.replace(reg, (val, group1) => {
+    // arr1.push(Number(group1.slice(0,group1.length-1)));
+    arr1.push(parseFloat(group1));
+  })
+  console.log(arr1);
+}
+deduplication3( [12,14,13,4,12,12,14,15] );
+//59.15

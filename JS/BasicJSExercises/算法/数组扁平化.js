@@ -44,14 +44,26 @@ function flat6(arr){
   return arr;
 }
 
+//JSON.stringify
+function flat7(arr){
+  let res = JSON.stringify(arr).replace(/(\[|\])/g,'').split(',').map(item => Number(item))
+  return res;
+}
 
-const a = [1, 3, 5, 7, [[5, [6, 9]]]]
+const a =[
+  [1,2,3],
+  [4,5,6,7],
+  [8,9,0,[12,14,[12,13,[17]]]],
+  10
+]
 
 // flat1(a);
 // flat2(a);
 // flat3(a);
 // console.log(flat4(a));
 // console.log(flat5(a));
-console.log(flat6(a));
+// console.log(flat6(a));
+console.log(flat7(a));
+console.log(JSON.stringify(a));
 
 
