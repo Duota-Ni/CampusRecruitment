@@ -16,6 +16,6 @@ Func.prototype={
 A();//1
 Func.A();//1
 Func().A();//2
-new Func.A();//2  1
-new Func().A();//3
-new new Func().A();//3
+new Func.A();//2
+new Func().A();//error
+new new Func().A();//err
