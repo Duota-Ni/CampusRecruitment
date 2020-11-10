@@ -51,6 +51,7 @@ absolute可以重叠，
 fixed相对屏幕进行定位，即使卷动页面也会一直保持在那位置
 即使放到relative里面，也是相对body定位  
 5.stick
+粘住，
 
 ## 优先级   
 ![css优先级权重](assets/img/css优先级权重.png)
@@ -169,4 +170,35 @@ color：文本颜色
 五、块级元素可以继承的属性
 
 1、text-indent、text-align
+
+
+## CSS性能优化  
+
+## BFC
+[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)
+
+- Block Formatting Context块级格式化上下文  
+- W3C：它决定了元素如何对其内容进行定位，以及与其他元素的关系和相互作用，当涉及到可视化布局的时候，BFC提供了一个环境，HTML元素就在这个环境中按照一定的规则进行布局  
+- 形成一个完全独立的空间，让空间中的子元素不会影响到外面的布局
+
+- CSS属性触发
+- 1. float不为none
+- 2. position不为relative和static
+- 3. overflow为auto scroll和hidden
+- 4. display的值为table-cell或inline-block
+
+### BFC能解决的问题
+1. 浮动元素令父元素高度塌陷 
+[BFC-浮动元素令父元素高度塌陷](BasicExercises/BFC-浮动元素令父元素高度塌陷.html)
+2. 解决自适应布局的问题
+   BFC解决--将自适应的设置BFC
+   [BFC-自适应布局](./BasicExercises/BFC-自适应布局.html)
+3. 解决margin重合（取最大值的问题）
+   只要把其中一个元素设置为BFC
+
+## 伪类 伪元素
+cnblogs.com/lomon6/p/10585885.html
+![总结](assets/img/伪类伪元素总结.png)
+- 常见伪类，伪元素
+![常见伪类，伪元素](assets/img/常见伪类伪元素.png)
 
