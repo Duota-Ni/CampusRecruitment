@@ -1,0 +1,49 @@
+.parent{
+  background-color: bisque;
+  width: 120px;
+  height: auto;
+}
+.special{
+  background-color:aquamarine;
+  width:50px;
+  height: 50px;
+  margin: 5px;
+}
+.son{
+  float: left;
+
+  background-color: #69cfff;
+  width:50px;
+  height: 50px;
+  margin: 5px;
+}
+.solve1{
+  /*任意选一个*/
+  overflow: hidden;
+}
+.solve2{
+  display: table-cell;
+}
+/* .solve3{
+  display: block;
+}
+.solve4{
+  position:fixed;
+} */
+.solve5{
+  position:absolute;
+}
+.solve6{
+  float: left;
+}
+.solve7{
+  height: 400px;
+}
+.new{
+  clear: both;
+}
+.solve9::after{
+  content:'';
+  display: block;
+  clear: both;
+}

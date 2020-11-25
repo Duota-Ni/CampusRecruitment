@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>BFC解决-浮动元素令父元素高度塌陷</title>
+  <link href="./BFC-浮动元素令父元素高度塌陷.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h2>父元素坍塌的情况：父元素坚持不到脱离文档流的浮动元素</h2>
+  <div class="parent">
+    <div class="special"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+  </div>
+
+  <hr>
+
+  <h2>解决方法1--父元素 overflow:hidden</h2>
+  <div class="parent solve1">
+    <div class="special"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+  </div>
+
+  <hr>
+
+  <h2>解决方法2--父元素 display: table-cell </h2>
+  <div class="parent solve2">
+    <div class="special"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+  </div>
+
+  <!-- <hr>
+
+  <h2>解决方法3--父元素 </h2>
+  <div class="parent solve3">
+    <div class="special"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+  </div>
+    
+  <hr>
+
+  <h2>解决方法4--父元素</h2>
+  <div class="parent solve4">
+    <div class="special"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+  </div> -->
+
+  <hr>
+
+  <h2>解决方法5--父元素 position:absolute;</h2>
+  <div class="parent solve5">
+    <div class="special"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+  </div>
+  <div style="height: 400px;"></div>
+  <hr>
+
+  <h2>解决方法6--父元素 直接float</h2>
+  <div class="parent solve6">
+    <div class="special"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+  </div>
+  <div style="height: 400px;"></div>
+  <hr>
+
+  <h2>解决方法7--父元素 设置高度（前提了解子元素高度） </h2>
+  <div class="parent solve7">
+    <div class="special"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+  </div>
+
+  <hr>
+
+  <h2>解决方法8-- 新增空元素clear:both </h2>
+  <div class="parent solve8">
+    <div class="special"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="new"></div>
+  </div>
+
+  <h2>解决方法9-- 新增伪类 clear:both </h2>
+  <div class="parent solve9">
+    <div class="special"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son new1"></div>
+  </div>
+
+</body>
+
+</html>
