@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CSS drop-down menu</title>
+<style type="text/css">
+
+div.menu-bar ul ul {
+	margin-top: 2px;
+	display: none;
+	position: static;
+	height: auto;
+	/* vertical-menus width */
+	width: 160px;
+	border: 1px #666666 solid;
+	background-color: #dddddd;
+}
+
+div.menu-bar li:hover > ul {
+	display: block;
+}
+
+
+</style>
+</head>
+
+<body>
+<h1>CSS drop-down menu</h1>
+<p>方法一:hover</p>
+<div class="menu-bar">
+  <ul>
+    <li>
+      <a href="example.html">About Us</a>
+      <ul>
+        <li>
+          <span onclick="alert('!');">JavaScript function</span>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<p>方法二：mouseenter mouserleave</p>
+<p>方法三：cubeui组件有个Tip</p>
+</body>
+</html>
