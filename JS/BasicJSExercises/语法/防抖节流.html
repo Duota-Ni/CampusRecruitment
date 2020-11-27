@@ -5,19 +5,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .con1 {
+      height:150px 
+      line-height:150px 
+      text-align:center  
+      color: #fff 
+      background-color:#ccc 
+      font-size:80px 
+    }
+  </style>
 </head>
 
 <body>
-  <div id="content"
-    style="height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;"></div>
+  <h1>防抖节流</h1>
+  <p>在续触发的事件，如 resize、scroll、mousemove 等,我们并不希望在事件持续触发的过程中那么频繁地去执行函数</p>
+  <br/>
+  <h3>如下演示mousemove事件</h3>
+  <p><b>没有其它操作</b>的情况下，函数被频繁地执行导致页面上数据变化特别快</p>
+  <div id="content1" class="con1"></div>
+  <br/>
+
+  <h2>防抖（debounce）</h2>
+  <h3>所谓防抖，就是指触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间。</h3>
+  <h4>非立即执行版</h4>
+  <div id="debounce1" class="con1"></div>
+  <br/>
+
+  <div id="content3" class="con1"></div>
+  <br/>
+
   <script>
-    let num = 1;
-    let content = document.getElementById('content');
+    let num = 1 
+    let content1 = document.getElementById('content1') 
+    let debounce1 = document.getElementById('debounce1') 
+    let debounce2 = document.getElementById('debounce2') 
 
     function count() {
-      content.innerHTML = num++;
-    };
-    content.onmousemove = count;
+      content.innerHTML = num++ 
+    } 
+    content.onmousemove = count 
+//https://www.jianshu.com/p/c8b86b09daf0
+    //非立即执行版
+    function debounce1(func,wait) {
+      let timeout 
+      return function () {
+        let context = this 
+        let args = arguments
+
+        if ()
+      }
+    }
   </script>
 </body>
 
