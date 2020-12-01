@@ -7,12 +7,12 @@
   <title>Document</title>
   <style>
     .con1 {
-      height:150px 
-      line-height:150px 
-      text-align:center  
-      color: #fff 
-      background-color:#ccc 
-      font-size:80px 
+      height:150px ;
+      line-height:150px ;
+      text-align:center  ;
+      color: #fff ;
+      background-color:#ccc ;
+      font-size:80px ;
     }
   </style>
 </head>
@@ -27,35 +27,60 @@
   <br/>
 
   <h2>防抖（debounce）</h2>
-  <h3>所谓防抖，就是指触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间。</h3>
+  <h3>防抖，指触发事件后在n秒内函数(在下文指的是count函数）只能执行一次，如果在n秒内又触发了事件，则会重新计算函数执行时间</h3>
   <h4>非立即执行版</h4>
+  <p>触发事件后不立即执行，而是在n秒后执行，如果在n秒内又触发了事件，则会重新计算函数的执行时间</p>
+  <div id="debounce1" class="con1"></div>
+  <br/>
+  <h4>立即执行版</h4>
+  <p>触发事件后不立即执行，而是在n秒后执行，如果在n秒内又触发了事件，则会重新计算函数的执行时间</p>
   <div id="debounce1" class="con1"></div>
   <br/>
 
-  <div id="content3" class="con1"></div>
+  <div id="debounce2" class="con1"></div>
   <br/>
 
   <script>
+    //普通
     let num = 1 
     let content1 = document.getElementById('content1') 
-    let debounce1 = document.getElementById('debounce1') 
-    let debounce2 = document.getElementById('debounce2') 
-
     function count() {
-      content.innerHTML = num++ 
+      content1.innerHTML = num++ 
     } 
-    content.onmousemove = count 
-//https://www.jianshu.com/p/c8b86b09daf0
+    content1.onmousemove = count 
+    
+//防抖：触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间。
+//节流：连续触发事件但是在 n 秒中只执行一次函数
+
+    //防抖
     //非立即执行版
-    function debounce1(func,wait) {
+    //https://github.com/mqyqingfeng/Blog/issues/22
+    let num1 = 1
+    let debounce1 = document.getElementById('debounce1') 
+    //????关于函数为什么这么写不能理解
+    function debounce1fun(func,wait) {
       let timeout 
       return function () {
-        let context = this 
-        let args = arguments
+        let context = this  //这里指id为debounce1的div
+        let args = arguments //这里指鼠标事件mousemove
 
-        if ()
+        if (timeout) clearTimeout(timeout)
+
+        timeout = setTimeout(() => {
+          func.apply(context,args)
+        },wait)
       }
     }
+    function count1() {
+      debounce1.innerHTML = num1++ 
+    } 
+    debounce1.onmousemove = debounce1fun(count1,1000)
+
+    //立即执行版
+    let debounce2 = document.getElementById('debounce2') 
+
+
+//https://zhuanlan.zhihu.com/p/72923073
   </script>
 </body>
 

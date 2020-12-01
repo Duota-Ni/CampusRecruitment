@@ -1,4 +1,4 @@
-## 从输入URL到显示页面发生了什么？ 
+## 一.从输入URL到显示页面发生了什么？ 
 ![url到页面显示1](assets/img/url到页面显示1.jpg)
 ![url到页面显示2](assets/img/url到页面显示2.jpg)
 ![url到页面显示3](assets/img/url到页面显示3.jpg)
@@ -7,7 +7,7 @@
 待补充：第5点，关键路径、阻塞
 第6点，为什么4次握手
 
-## http 状态码  
+## 二.http 状态码  
 ![状态码分类](assets/img/状态码分类.png)
 常见的  
 - 2xx  
@@ -31,7 +31,7 @@
 - 500 Inter Server Error：表示服务器在执行请求时发生了错误，也有可能是web应用存在的bug或某些临时的错误时；
 - 503 Server Unavailable：表示服务器暂时处于超负载或正在进行停机维护，无法处理请求；
 
-## 网络攻击  
+## 三.网络攻击  
 ### 针对Web应用的攻击模式  
 - 以服务器为目标的主动攻击 
 - - SQL注入
@@ -76,7 +76,7 @@
 + SYN Flooding攻击  
   Synflooding（同步泛滥技术）攻击手段。就是拒绝服务攻击（DoS），该攻击利用TCP/IP协议天生的特点，通过大量的虚假IP地址建立不完整连接，使得服务器超载，陷入瘫痪状态。这种攻击的特点是简单，没有任何技术含量，稍微懂一点IP技术的人都可以实施。
 
-# HTTP  
+## 四.HTTP概念  
 [HTTP掘金文章](https://juejin.im/post/6857287743966281736#heading-9)
 1. 概述
 ![HTTP概述](./assets/img/HTTP概述.png)
@@ -127,4 +127,7 @@ GET产生一个TCP数据包；POST产生两个TCP数据包
 2. 据研究，在网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。而在网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点。  
 3. 并不是所有浏览器都会在POST中发送两次包，Firefox就只发送一次。
 
+## 浏览器Cookie及其SameSite属性  
+[参考阮一峰](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html)
+[参考冴羽](https://github.com/mqyqingfeng/Blog/issues/157)
 
