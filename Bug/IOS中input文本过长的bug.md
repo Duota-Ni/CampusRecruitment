@@ -37,7 +37,27 @@
 ### 方法三
 overflow-x:scroll;
 ### 方法四
+```css
+/**1 可能会有滚动条 */
+// .ios_scroll {
+//   overflow-x: scroll ;
+// }
+// .ios_scroll ::-webkit-scrollbar {
+//   display: none;
+// }
 
+/**2  */
+.ios_scroll {
+  input {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    * {
+        -webkit-transform: translateZ(0px);
+        //  -webkit-transform: translate3d(0, 0, 0);
+      }
+  }
+}
+```
 https://stackoverflow.com/questions/7808110/css3-property-webkit-overflow-scrollingtouch-error/10122689#10122689
 
 https://stackoverflow.com/questions/25596960/issues-with-touch-scroll-on-ios-when-focusing-inputs
