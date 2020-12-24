@@ -62,7 +62,7 @@ build/webpack.base.conf.js
 ```
 
 ### 最后
-本来以为crtl+S就OK了，然后发现还是原理的样子，这是因为webpack.base.conf.js  存放在build文件夹里，build文件夹里面是对 webpack 开发和打包的相关设置，包括入口文件、输出文件、使用的模块等；
+本来以为crtl+S就OK了，然后发现还是原来的样子，这是因为webpack.base.conf.js  存放在build文件夹里，build文件夹里面是对 webpack 开发和打包的相关设置，包括入口文件、输出文件、使用的模块等；
 所以要重新npm run dev一遍才可以
 
 
