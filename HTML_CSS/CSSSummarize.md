@@ -33,7 +33,7 @@ a{
 }
 ```
 下面那种，因为浏览器读取选择器的顺序是**由右到左**进行，上面例子会先读一遍a再读.box
- 
+
 ## css position  
 CSS position属性用于指定一个元素在文档中的定位方式。top，right，bottom 和 left 属性则决定了该元素的最终位置。  
 + static | relative | absolute | sticky | fixed
@@ -201,4 +201,6 @@ cnblogs.com/lomon6/p/10585885.html
 ![总结](assets/img/伪类伪元素总结.png)
 - 常见伪类，伪元素
 ![常见伪类，伪元素](assets/img/常见伪类伪元素.png)
+
+## Base64编码与CssSprites
 
