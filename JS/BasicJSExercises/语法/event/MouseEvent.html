@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 style="background-color: aquamarine;">点击我打印鼠标事件</h1>
+  <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent" target="_brank">关于鼠标事件的解析 MDN</a></p>
+  <img src="../../../img/clientXoffsetX等位置.jpg" alt="clientXoffsetX等位置"></body>
+  <script>
+    function mouseDown(e) {
+      var e = e || event;
+      console.log(e)
+    }
+    window.onload = function () {
+      document.getElementsByTagName('h1')[0].addEventListener('mousedown', mouseDown, false)
+    }
+  </script>
+</body>
+
+</html>
