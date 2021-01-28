@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap {
+      /* 注意position */
+      position: relative;
+      left: 20px;
+      background-color: red;
+    }
+
+    .wrap2 {
+      /* 注意position */
+      position: relative;
+      background-color: yellow;
+    }
+
+    .inner {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>HTMLElement</h1>
+  <p><b>HTMLElement</b> 接口表示所有的 HTML 元素。一些HTML元素直接实现了HTMLElement接口，其它的间接实现HTMLElement接口.</p>
+  <p><b>HTMLElement.offsetParent</b>是一个只读属性，返回一个指向最近的（指包含层级上的最近）包含该元素的定位元素或者最近的 table,td,th,body元素。当元素的 style.display
+    设置为
+    "none" 时，offsetParent 返回 null。offsetParent 很有用，因为 offsetTop 和 offsetLeft 都是相对于其内边距边界的。</p>
+  <p><b>HTMLElement.offsetLeft</b> 是一个只读属性，返回当前元素左上角相对于 HTMLElement.offsetParent 节点的左边界偏移的<span
+      style="color: red;">像素值</span>。</p>
+  <p>对块级元素来说，offsetTop、offsetLeft、offsetWidth 及 offsetHeight 描述了元素相对于 offsetParent 的边界框。</p>
+  <h1>Demo</h1>
+  <div class="wrap">红色
+    <div class="wrap2">黄色
+      <div class="inner">粉色</div>
+    </div>
+  </div>
+  <h2>总结</h2>
+  <h3>本身定位为fixed</h3>
+  <p>==>offsetParent:null（不是火狐），此时offsetLeft和offsetTop是根据body来计算的</p>
+  <p>==>offsetParent:body（火狐）</p>
+  <h3>本身定位不为fixed</h3>
+  <p>父级没有定位 ==> offsetParent: body</p>
+  <p>父级有定位 ==> offsetParent:定位父级</p>
+  <p><a href="https://www.cnblogs.com/zjzpg/p/13683846.html">参考</a></p>
+  <script>
+    var inner = document.querySelector('.inner')
+    console.log('粉色框的offsetLeft:' + inner.offsetLeft, 'offsetTop:' + inner.offsetTop)
+  </script>
+</body>
+
+</html>
