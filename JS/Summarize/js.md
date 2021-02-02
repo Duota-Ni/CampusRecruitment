@@ -3,7 +3,7 @@
 ### 目录
 - [目录](#目录)
 - [1. 原始值和引用值类型及区别](#1-原始值和引用值类型及区别)
-- [2. 判断数据类型typeof、instanceof、Object.prototype.toString.call()、constructor](#2-判断数据类型typeofinstanceofobjectprototypetostringcallconstructor)
+- [2. 判断数据类型typeof、instanceof、**Object.prototype.toString.call()**、constructor](#2-判断数据类型typeofinstanceofobjectprototypetostringcallconstructor)
 - [3. 类数组与数组的区别与转换](#3-类数组与数组的区别与转换)
 - [4. 数组的常见API](#4-数组的常见api)
 - [5. bind、call、apply的区别](#5-bindcallapply的区别)
@@ -53,8 +53,9 @@ foo = true;  // foo is a Boolean now
 存储在**堆（heap）**中的对象，存储在变量处的值是一个指针（point），指向存储对象的内存处。  
 object  
 
-### 2. 判断数据类型typeof、instanceof、Object.prototype.toString.call()、constructor  
+### 2. 判断数据类型typeof、instanceof、**Object.prototype.toString.call()**、constructor  
 - typeof  
+  适用于判断一个变量是否为原始类型，即字符串、数值、布尔值、undefined，如果是对象或者null则返回"object"
 [参考MDN-typeof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof)  
 ```js 
 typeof operand
@@ -70,17 +71,16 @@ instanceof 运算符用于检测构造函数的 prototype 属性是否出现在�
 var o = new Object();
 o.toString(); // returns [object Object]
 ```
-**使用 toString() 检测对象类型:**
+**使用 Object.prototype.toString.call() 检测对象类型:**  
+**Object.prototype.toString.call()这种判断最准确**
 ```js
-var toString = Object.prototype.toString;
-
-toString.call(new Date); // [object Date]
-toString.call(new String); // [object String]
-toString.call(Math); // [object Math]
+Object.prototype.toString.call(new Date); // [object Date]
+Object.prototype.toString.call(new String); // [object String]
+Object.prototype.toString.call(Math); // [object Math]
 
 //Since JavaScript 1.8.5
-toString.call(undefined); // [object Undefined]
-toString.call(null); // [object Null]
+Object.prototype.toString.call(undefined); // [object Undefined]
+Object.prototype.toString.call(null); // [object Null]
 ```
 **内部属性 [[Class]]**  
 所有 typeof 返回值为 "object" 的对象（如数组）都包含一个内部属性 [[Class]]（我们可以把它看作一个内部的分类，而非
