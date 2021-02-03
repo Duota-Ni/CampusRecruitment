@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Image()函数将会创建一个新的HTMLImageElement实例。
+    // 它的功能等价于 document.createElement('img')
+    // 在body中定义如下内容<img width="150" height="200" src="picture.jpg"> ：
+    var myImage = new Image(150, 200);
+    myImage.src = 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2976909607,2251211325&fm=26&gp=0.jpg';
+    myImage.alt = "刘亦菲的图片"
+    document.body.appendChild(myImage);
+    console.log(myImage);
+  </script>
+</body>
+
+</html>

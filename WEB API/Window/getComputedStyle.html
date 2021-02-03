@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>方块的运动</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <a href="https://developer.mozilla.org/zh-cn/docs/web/api/window/getcomputedstyle">MDN</a>
+  <script>
+    const elem = document.querySelector(".box")
+    const style = window.getComputedStyle(elem, null)
+    // console.log(typeof style);
+    console.log(style)
+  </script>
+</body>
+
+</html>
