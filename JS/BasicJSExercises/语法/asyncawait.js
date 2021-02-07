@@ -1,19 +1,19 @@
 //https://segmentfault.com/a/1190000007535316
 
-//1.先来看下它的执行顺序
-// async function async1() {
-//   console.log( 'async1 start' )
-//   await async2()
-//   console.log( 'async1 end' )
-// }
+//1.先来看下它的执行顺序 
+async function async1() {
+  console.log( '1 async1 start' )
+  await async2()
+  console.log( '2 async1 end' )
+}
 
-// function async2() {
-//   console.log( 'async2' )
-// }
+function async2() {
+  console.log( '3 async2' )
+}
 
-// async1()
+async1()
 
-// console.log( 'script start' )
+console.log( '4 script start' )
 
 
 //2.概念
@@ -24,6 +24,10 @@
 //3.async的作用
 //3.1 处理返回值将直接输出一个fullfill状态的Promise
 //如果在函数中 return 一个直接量，async 会把这个直接量通过` Promise.resolve() `封装成 Promise 对象。
+// Promise {<fulfilled>: "hello async"}
+// __proto__: Promise
+// [[PromiseState]]: "fulfilled"
+// [[PromiseResult]]: "hello async"
 // async function testAsync() {
 //   return "hello async"
 // }
@@ -31,8 +35,12 @@
 // console.log(res)
 
 //如果没有返回值
-async function testAsync2() {
+// Promise {<fulfilled>: undefined}
+// __proto__: Promise
+// [[PromiseState]]: "fulfilled"
+// [[PromiseResult]]: undefined
+// async function testAsync2() {
   
-}
-const res = testAsync2()
-console.log(res)
+// }
+// const res = testAsync2()
+// console.log(res)
