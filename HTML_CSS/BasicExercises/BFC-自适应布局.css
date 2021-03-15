@@ -22,16 +22,16 @@
 
 .leftsolve2{
   position: absolute;
-  top:0;
+  /* top:0;
   left:0;
-  bottom: 0;
+  bottom: 0; */
   width: 200px;
 }
 .rightsolve2{
-  margin-left:200px
+  margin-left:200px;
   /* position: absolute;
   top:0;
-  right: 0;
-  left: 200px;
-  width: 100%; */
+  right: 0;*/
+  left: 200px; 
+  width: 100%;
 }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--
+    函数防抖：多次调用一个函数，但是最终只执行一次
+    函数节流：多次执行一个函数，但是我们希望把函数的执行频率控制在一定频率内  
+  -->
+  <script>
+    // 封装防抖
+    // isStart为true时立即执行
+    function debounce(fn, delay = 200, isStart = false) {
+      if (typeof fn !== "function") {
+        return console.error("请传入一个函数哦")
+      }
+      let timer = 0
+      let isFirst = true // 第一次触发
+      // 返回经过防抖处理的新函数
+      return function (...arg) {
+        let _this = this
+        if (isFirst && isStart) {
+          fn.apply(_this, arg)
+          isFirst = false
+        }
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          if (!isStart) {
+            fn.apply(_this, arg)
+          }
+          isFirst = true
+        }, delay)
+      }
+    }
+
+    document.addEventListener("mousemove", debounce(function (e) {
+      console.log("发生了move", e, this)
+    }, 300, true))
+
+    // let fn = debounce(function (...arg) {
+    //   console.log(arg);
+    // });
+    // fn(1, 2, 3);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--
+    函数防抖：多次调用一个函数，但是最终只执行一次
+    函数节流：多次执行一个函数，但是我们希望把函数的执行频率控制在一定频率内  
+  -->
+  <script>
+    // 实现简单节流
+    // let time = 0
+    // document.addEventListener("mousemove", () => {
+    //   if (timer) { //当timer存在的时候，返回空不执行
+    //     return; // return空值只是退出出当前函数
+    //   }
+    //   clearTimeout(timer)
+    //   let timer = setTimeout(() => {
+    //     console.log("move");
+    //     timer = 0; //timer为0 false之后再执行
+    //   }, 200)
+    // })
+
+    // 节流
+    function throttle(fn, delay = 200, isStart = true) {
+      if (typeof fn !== "function") {
+        return console.error("请传入一个函数哦")
+      }
+      let timer = 0
+      return function (...arg) {
+        let _this = this
+        if (timer) { // 当定时器存在时我们不会开启新的函数执行,控制了频率
+          return ;
+        }
+        isStart && fn.apply(_this, arg)
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          (!isStart) && fn.apply(_this, arg)
+          timer = 0
+        }, delay)
+      }
+    }
+
+    document.addEventListener("mousemove", throttle(function (e) {
+      console.log("发生了move", e, this)
+    }, 500, false))
+  </script>
+</body>
+
+</html>

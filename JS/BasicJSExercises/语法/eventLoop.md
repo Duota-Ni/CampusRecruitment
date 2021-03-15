@@ -33,3 +33,5 @@ console.log('5')
 - 所以上面代码执行顺序为:
 同步：console.log(1)->console.log(2)->console.log(5);  
 异步：(微任务)console.log(3)->（宏任务）console.log(4);
+
+## NodeJS和浏览器执行有差异

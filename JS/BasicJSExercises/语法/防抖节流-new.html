@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      position: fixed;
+      width: 5px;
+      height: 5px;
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    函数防抖：多次调用一个函数，但是最终只执行一次
+    函数节流：多次执行一个函数，但是我们希望把函数的执行频率控制在一定频率内 
+  -->
+  <script>
+    // 实现简单防抖
+    // 这里在执行mousemove的时候先把定时器清空，再在200ms后执行打印操作
+    // 然后再连续执行mouseove的时候把定时器清空，再在200ms后执行打印操作
+    // 达到了多次调用函数，但在200ms后只执行一次
+    // let time = 0
+    // document.addEventListener("mousemove", () => {
+    //   clearTimeout(timer)
+    //   let timer = setTimeout(()=>{
+    //     console.log("move");
+    //   },200)
+    // })
+
+    // 实现简单节流
+    let time = 0
+    document.addEventListener("mousemove", () => {
+      if(timer) { //当timer存在的时候，返回空不执行
+        return ; // return空值只是退出出当前函数
+      }
+      clearTimeout(timer)
+      let timer = setTimeout(()=>{
+        console.log("move");
+        timer = 0; //timer为0 false之后再执行
+      },200)
+    })
+    
+    // JavaScript 在事件中调用函数时用return返回值，实际上是对 window.event.returnvalue 进行设置，而该值决定了当前操作是否继续。
+    // 当返回的是 true 时，将继续操作。
+    // 当返回的是 false 时，将中断操作
+  </script>
+</body>
+
+</html>

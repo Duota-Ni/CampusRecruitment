@@ -175,26 +175,56 @@ color：文本颜色
 ## CSS性能优化  
 
 ## BFC
-[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)
+[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)  
+[什么是BFC？看这一篇就够了](https://blog.csdn.net/sinat_36422236/article/details/88763187)
 
+```
 - Block Formatting Context块级格式化上下文  
-- W3C：它决定了元素如何对其内容进行定位，以及与其他元素的关系和相互作用，当涉及到可视化布局的时候，BFC提供了一个环境，HTML元素就在这个环境中按照一定的规则进行布局  
+- 它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。
 - 形成一个完全独立的空间，让空间中的子元素不会影响到外面的布局
+```
 
-- CSS属性触发
-- 1. float不为none
-- 2. position不为relative和static
+### Box：css布局的基本单位（盒子模型）  
+Box 是 CSS 布局的对象和基本单位， 直观点来说，就是一个页面是由很多个 Box 组成的。元素的类型和 display 属性，决定了这个 Box 的类型。 不同类型的 Box， 会参与不同的 Formatting Context（一个决定如何渲染文档的容器），因此Box内的元素会以不同的方式渲染。让我们看看有哪些盒子：
+
+- block-level box:display 属性为 block, list-item, table 的元素，会生成 block-level box。并且参与 block fomatting context；
+- inline-level box:display 属性为 inline, inline-block, inline-table 的元素，会生成 inline-level box。并且参与 inline formatting context；
+- run-in box: css3 中才有， 这儿先不讲了。  
+  
+### Formatting Context  
+Formatting context 是 W3C CSS2.1 规范中的一个概念。它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。最常见的 Formatting context 有 Block fomatting context (简称BFC)和 Inline formatting context (简称IFC)  
+
+> BFC是一个独立的布局环境，其中的元素布局是不受外界的影响，并且在一个BFC中，块盒与行盒（行盒由一行中所有的内联元素所组成）都会垂直的沿着其父元素的边框排列
+
+### BFC的布局规则
+- 内部的Box会在垂直方向，一个接一个地放置。
+- Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠。
+- 每个盒子（块盒与行盒）的margin box的左边，与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
+  ![BFC盒子内外布局](assets/img/BFC盒子内外布局.png)
+- BFC的区域不会与float box重叠。
+- BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。
+- 计算BFC的高度时，浮动元素也参与计算。
+
+### CSS属性触发BFC
+- 1. float不为none，为left/right
+- 2. position不为relative和static，为absolute/fixed/sticky
 - 3. overflow为auto scroll和hidden
 - 4. display的值为table-cell或inline-block
 
 ### BFC能解决的问题
-1. 浮动元素令父元素高度塌陷 
-[BFC-浮动元素令父元素高度塌陷](BasicExercises/BFC-浮动元素令父元素高度塌陷.html)
-2. 解决自适应布局的问题
-   BFC解决--将自适应的设置BFC
+1. 解决浮动元素令父元素高度塌陷的问题   
+   父元素高度塌陷是指父容器的高度height突然没了  
+   [浮动元素](JSDOM\CSS\imooc-张鑫旭\float.md)  
+   [BFC-浮动元素令父元素高度塌陷](BasicExercises/BFC-浮动元素令父元素高度塌陷.html)
+   
+1. 解决自适应布局的问题  
+   BFC解决--将自适应的设置BFC  
    [BFC-自适应布局](./BasicExercises/BFC-自适应布局.html)
-3. 解决margin重合（取最大值的问题）
-   只要把其中一个元素设置为BFC
+   
+2. 解决margin重合（取最大值的问题）  
+   只要把其中一个元素设置为BFC  
+   
+> 因为BFC内部的元素和外部的元素绝对不会互相影响，因此， 当BFC外部存在浮动时，它不应该影响BFC内部Box的布局，BFC会通过变窄，而不与浮动有重叠。同样的，当BFC内部有浮动时，为了不影响外部元素的布局，BFC计算高度时会包括浮动的高度。避免margin重叠也是这样的一个道理。
 
 ## 伪类 伪元素
 cnblogs.com/lomon6/p/10585885.html
