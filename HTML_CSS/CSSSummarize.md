@@ -22,6 +22,16 @@ CSS Sprites在国内很多人叫css精灵，是一种网页图片应用处理方
 [阮一峰flex](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
 ## 使用css,让一个div消失在视野中
+```css
+div {
+  display: none;
+}
+
+/* 或者 */
+div {
+ visibility:hidden;
+}
+```
 
 ## 不考虑其他因素，下面哪种渲染性能比较高
 ```css
@@ -174,6 +184,7 @@ color：文本颜色
 
 ## CSS性能优化  
 
+
 ## BFC
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)  
 [什么是BFC？看这一篇就够了](https://blog.csdn.net/sinat_36422236/article/details/88763187)
@@ -203,7 +214,7 @@ Formatting context 是 W3C CSS2.1 规范中的一个概念。它是页面中的�
   ![BFC盒子内外布局](assets/img/BFC盒子内外布局.png)
 - BFC的区域不会与float box重叠。
 - BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。
-- 计算BFC的高度时，浮动元素也参与计算。
+- 计算BFC的高度时，浮动元素也参与计算。BFC与浮动元素不会重叠
 
 ### CSS属性触发BFC
 - 1. float不为none，为left/right

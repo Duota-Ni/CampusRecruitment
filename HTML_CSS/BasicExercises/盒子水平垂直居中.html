@@ -11,6 +11,10 @@
       position: relative;
     }
 
+    body {
+      background-color: red;
+    }
+
     .box {
       box-sizing: border-box;
       width: 100px;
@@ -60,24 +64,33 @@
       justify-content: center;
       align-items: center;
     } */
+
+
+    /* gird */
+    body{
+      display: grid;
+      justify-content: center;
+      align-items: center;
+    }
     
     /* 4.display:table-cell 这种方法本来是用来控制含泪元素水平垂直居中的 */
-    body{
+    /* body{
       display: table-cell;
       vertical-align: middle;
       text-align: center;
-      /*固定宽高*/
+      固定宽高
       width:500px;
       height: 500px;
     }
     .box{
       display:inline-block;
-    }
+    } */
   </style>
   <title>盒子水平垂直居中</title>
 </head>
 
 <body>
+
   <div class="box" id="box">Yangyang</div>
 
   

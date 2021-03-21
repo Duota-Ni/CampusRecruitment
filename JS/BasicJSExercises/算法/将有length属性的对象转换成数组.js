@@ -26,3 +26,4 @@ function callIt(fn) {
   return fn.apply(this, params)
 }
 
+// 方法四ES6 Array.form()

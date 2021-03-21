@@ -1,3 +1,6 @@
+// map存储键值对
+// 键：arr的值
+// 值：arr值对应的个数
 var findRepeatNumber = function(arr) {
   let map = new Map() ;
   let res = []

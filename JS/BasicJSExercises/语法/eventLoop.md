@@ -1,4 +1,7 @@
 # Event Loop  
+
+[这一次，彻底弄懂 JavaScript 执行机制](https://juejin.cn/post/6844903512845860872#heading-4)
+
 例题1，下面打印结果是？
 
 ```js
@@ -27,11 +30,12 @@ console.log('5')
 ![EventLoop](../../img/EventLoop.png)  
 - 异步事件又包括微任务和宏任务：  
   宏任务和微任务关系：微任务执行完后再执行宏任务  
-  **微任务操作：1：Promise,2：async await，3:MutationObserver**  
-  **宏任务操作: 1:setTimeout,2:setInterval,3:I/O操作，4:xhr**
+  **微任务操作：1：Promise,2：async await，3:MutationObserver 4.process.nextTick(callback)**  
+  **宏任务操作: 1:setTimeout,2:setInterval,3:I/O操作，4:xhr 5.包括整体代码script**
   ![EventLoop2](../../img/EventLoop2.png)    
 - 所以上面代码执行顺序为:
 同步：console.log(1)->console.log(2)->console.log(5);  
 异步：(微任务)console.log(3)->（宏任务）console.log(4);
 
 ## NodeJS和浏览器执行有差异
+[Node 定时器详解](http://www.ruanyifeng.com/blog/2018/02/node-event-loop.html?from=timeline&isappinstalled=0)
