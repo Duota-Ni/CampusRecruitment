@@ -50,15 +50,17 @@ CSS position属性用于指定一个元素在文档中的定位方式。top，ri
 1.static  
 默认，在正常文档流，根据HTML排版的flow移动
 2.relative
+**相对于其正常位置进行定位**
 除了有和static相同的特性：跟随HTML排版流程去定位之外，可以设置top left right bottom相对定位
-3.absolute  
+3.absolute 
+**相对于 static 定位以外的第一个父元素进行定位。** 
 被移除文档流，不会跟随HTML排版的流程移动  
 当absolute的元素所在的页面有卷轴，即，可以滑动时，它会随着卷动而移动  
 absolute可以重叠，
 当absolute作为父元素，其子元素也是absolute时，子元素将相对父元素定位
 - absoulte子元素相对relative父元素进行定位
 4.fixed  
-fixed相对屏幕进行定位，即使卷动页面也会一直保持在那位置
+fixed相对**屏幕(浏览器窗口）**进行定位，即使卷动页面也会一直保持在那位置
 即使放到relative里面，也是相对body定位  
 5.stick
 粘住，

@@ -13,6 +13,10 @@
 // }
 // deurl('http://www.baidu.com/s?id=233&id=344&key=%E6%9D%A8%E6%B4%8B&word=')
 
+// 获取浏览器的url
+// window.location.href
+
+
 //增加要求
 //重复的放到数组里，文字解码，没有value的赋值为666
 function deurl2(url) {

@@ -1,15 +1,19 @@
-// function solve( a ) {
-//   for(let i = a.length-1;i>0;i--){
-//     let target = {i:a[i]};
-//     let left = a[i-1]; 
-//     let right = a[i+1];
-//     if(target>left &&target>right){
-//       return target.key();
-//     }
-//   }
-// x}
-
-// consolevar.log( solve([2,4,1,2,7,8,4]) );
-
-var x = {1:9};
-console.log(Object.keys(x));
+/**
+ * @param {number[]} nums
+ * @return {number}
+ * 方法map存储键值对
+ * 键 数组的值
+ * 值 值的个数
+ */
+ var findRepeatNumber = function(nums) {
+  let m = new Map()
+  for(let i = 0; i < nums.length; i++) {
+    if(m.get(nums[i]) !== undefined) {
+      let a = m.get(nums[i])
+      m.set(nums[i], a++)
+    }else{
+      m.set(nums[i],1)
+    }
+  }
+  console.log(m)
+};

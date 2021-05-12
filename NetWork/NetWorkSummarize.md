@@ -20,7 +20,7 @@
        301与302的区别：前者是永久移动，后者是临时移动（之后可能还会更改URL）
 - 303 See Other：表示请求的资源被分配了新的URL，应使用GET方法定向获取请求的资源；
       302与303的区别：后者明确表示客户端应当采用GET方式获取资源
-- 304 Not Modified：表示客户端发送附带条件（是指采用GET方法的请求报文中包含if-Match、If-Modified-Since、If-None-Match、If-Range、    If-Unmodified-Since中任一首部）的请求时，服务器端允许访问资源，但是请求为满足条件的情况下返回改状态码；
+- 304 Not Modified：未改变 表示客户端发送附带条件（是指采用GET方法的请求报文中包含if-Match、If-Modified-Since、If-None-Match、If-Range、    If-Unmodified-Since中任一首部）的请求时，服务器端允许访问资源，但是请求为满足条件的情况下返回改状态码；
 - 307 Temporary Redirect：临时重定向，与303有着相同的含义，307会遵照浏览器标准不会从POST变成GET；（不同浏览器可能会出现不同的情况）；
 - 4xx （4种）
 - 400 Bad Request：表示请求报文中存在语法错误；
@@ -62,7 +62,7 @@
   影响：设置任何Cookie信息
         重定向至任何URL
         显示任意的主体（HTTP响应截断攻击）
-        
+  
 + 跨站点请求伪造CSRF  Cross-Site Request Forgeries  
   攻击者通过设置好的陷阱，强制对已完成认证的用户进行非预期的个人信息或设定信息等某些状态更新
   影响：利用已通过认证的用户权限更新设定信息，购买商品，在留言板上发表言论  
@@ -81,10 +81,6 @@
 1. 概述
 ![HTTP概述](./assets/img/HTTP概述.png)
 
-
-
-
-
 ## HTTP1.0 HTTP1.1 HTTP2  
 
 
@@ -98,7 +94,7 @@ Cache-Control: no-store
 4、Private：指示对于单个用户的整个或部分响应消息，不能被共享缓存处理。这允许服务器仅仅描述当用户的部分响应消息，此响应消息对于其他用户的请求无效。
 
 ## get post区别  
-[get post](https://blog.csdn.net/ever_siyan/article/details/87935455?utm_medium=distribute.pc_relevant.none-task-blog-title-1&spm=1001.2101.3001.4242)
+[get post](http://t.cn/RjLq41J)
 普通回答：    
 GET在浏览器回退时是无害的，而POST会再次提交请求。  
 GET产生的URL地址可以被Bookmark（书签），而POST不可以。  
@@ -111,7 +107,7 @@ GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来�
 GET参数通过URL传递，POST放在Request body中。  
 
 深入底层：  
-GET和POST是什么？HTTP协议中的两种发送请求的方法。  
+GET和POST是什么？HTTP协议中的两种**发送请求**的方法。  
 HTTP是什么？HTTP是基于TCP/IP的关于数据如何在万维网中如何通信的协议。  
 HTTP的底层是TCP/IP。所以GET和POST的底层也是TCP/IP，也就是说，GET/POST都是TCP链接。GET和POST能做的事情是一样一样的。你要给GET加上request body，给POST带上url参数，技术上是完全行的通的。  
 
@@ -130,4 +126,20 @@ GET产生一个TCP数据包；POST产生两个TCP数据包
 ## 浏览器Cookie及其SameSite属性  
 [参考阮一峰](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html)
 [参考冴羽](https://github.com/mqyqingfeng/Blog/issues/157)
+
+## Cookie、Session、Token、JWT
+
+>[傻傻分不清之 Cookie、Session、Token、JWT](https://juejin.cn/post/6844904034181070861)
+>
+>[你真的了解 Cookie 和 Session 吗](https://juejin.cn/post/6844903842773991431)
+
+### 三个概念
+认证（Authentication）验证当前用户的身份
+授权（Authorization）用户授予第三方应用访问该用户某些资源的权限
+凭证（Credentials）实现认证和授权的前提是需要一种媒介（证书）
+
+### Cookie
+HTTP 是无状态的协议（对于事务处理没有记忆能力，每次客户端和服务端会话完成时，服务端不会保存任何会话信息）
+cookie 存储在客户端
+cookie 是不可跨域的： 每个 cookie 都会绑定单一的域名，无法在别的域名下获取使用，一级域名和二级域名之间是允许共享使用的（靠的是 domain）。
 
